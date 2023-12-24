@@ -7,7 +7,7 @@ import { useRouter } from "next/navigation";
 import logoImg from "../public/assets/logo.png";
 import CustomButton from "./CustomButton";
 import { UserAvatar } from "./";
-import { Divide, PenSquare, User, Waypoints } from "lucide-react";
+import { PenSquare, User, Waypoints } from "lucide-react";
 
 const Navbar = () => {
   const { data: session } = useSession();
@@ -15,6 +15,14 @@ const Navbar = () => {
   const [displaySubmenu, setDisplaySubmenu] = useState(false);
 
   const router = useRouter();
+
+  const goToNewProject = () => {
+    if(session){
+      router.push("/newproject")
+    }else{
+      signIn()
+    }
+  }
 
   return (
     <nav className="navbar">
@@ -33,13 +41,13 @@ const Navbar = () => {
       <div className="buttons-container">
         <div title="Add Project">
           <PenSquare
-            onClick={() => router.push("/newproject")}
+            onClick={() => goToNewProject()}
             className="w-8 h-8 sm:hidden cursor-pointer"
           />
           <CustomButton
             title="Add Project"
             customStyles="hidden sm:flex bg-green-700 text-white"
-            handleEvent={() => router.push("/newproject")}
+            handleEvent={() => goToNewProject()}
           />
         </div>
         {!session ? (

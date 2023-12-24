@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useSession, signOut } from "next-auth/react";
+import { useSession, signOut, signIn } from "next-auth/react";
 import {
   Popover,
   PopoverContent,
@@ -10,11 +10,26 @@ import {
 import { UserAvatarProps } from "@/types/index";
 import { useRouter } from "next/navigation";
 
-const UserAvatar = ( { displaySubmenu, setDisplaySubmenu }: UserAvatarProps) => {
-  
-    const { data: session } = useSession();
+const UserAvatar = ({ displaySubmenu, setDisplaySubmenu }: UserAvatarProps) => {
+  const { data: session } = useSession();
 
-    const router = useRouter()
+  const router = useRouter();
+
+  const goSignOut = () => {
+    signOut({ redirect: false }).then(() => {
+      router.push("/");
+      setDisplaySubmenu(false);
+    });
+  };
+
+  const goToMyProjects = () => {
+    if (session) {
+      setDisplaySubmenu(false);
+      router.push("/myprojects");
+    } else {
+      signIn();
+    }
+  };
 
   return (
     <Popover>
@@ -34,20 +49,13 @@ const UserAvatar = ( { displaySubmenu, setDisplaySubmenu }: UserAvatarProps) => 
           <ul className="mt-1 flex flex-col">
             <li
               className="flex-center px-2 py-3 cursor-pointer hover:bg-green-600 hover:text-white"
-              onClick={() => {
-                setDisplaySubmenu(false);
-                router.push("/myprojects");
-              }}
+              onClick={goToMyProjects}
             >
               My projects
             </li>
             <li
               className="flex-center px-2 py-3 cursor-pointer hover:bg-green-600 hover:text-white"
-              onClick={() => {
-                setDisplaySubmenu(false);
-                router.push("/")
-                signOut();
-              }}
+              onClick={goSignOut}
             >
               Logout
             </li>

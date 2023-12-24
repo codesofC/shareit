@@ -20,15 +20,10 @@ const Myprojects = () => {
   const { data: session } = useSession();
 
   const { isLoading, setIsLoading } = useLoadingContext();
-  let timeout;
 
   useEffect(() => {
     setIsLoading(true);
     getUserProjects();
-
-    return () => {
-      clearTimeout(timeout);
-    };
   }, [session]);
 
   const getUserProjects = async () => {
