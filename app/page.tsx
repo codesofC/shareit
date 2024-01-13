@@ -7,6 +7,7 @@ import {
   collection,
   DocumentData,
   getDocs,
+  orderBy,
   query,
   QueryDocumentSnapshot,
   where,
@@ -36,7 +37,7 @@ export default function Home() {
 
     setProjects([]);
 
-    const q = query(collection(db, "projects"), where("email", "!=", ""));
+    const q = query(collection(db, "projects"));
 
     const fetchData = await getDocs(q);
 
