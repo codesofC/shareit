@@ -56,7 +56,12 @@ const Myprojects = () => {
             <ProjectItem key={index} project={item} />
           ))}
         </div>
-      ) : null}
+      ) : (
+        <div className="text-center text-red-500 font-bold mt-24">
+          {" "}
+          No available project add{" "}
+        </div>
+      )}
     </div>
   ) : (
     <Loading />
