@@ -2,21 +2,9 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 # ShareIT
 
-It is a responsive platform for sharing projects and others using NextAuth authentication and Firebase's storage.
+É uma plataforma responsiva para compartilhamento de projetos e outros usando autenticação NextAuth e armazenamento Firebase.
 
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-## 👨🏾‍💻 Technologies
+## 👨🏾‍💻 Tecnologias
 - React
 - Typescript
 - Next.js
@@ -24,5 +12,10 @@ bun dev
 - NextAuth
 - Firebase
 - Shadcn UI
+
+## 🚦 Para executar o projeto
+1. Clone o repositório em seu local.
+2. Instale as dependências do projeto com ``npm install`` or ``yarn``
+3. Para vizualizar a aplicação localmente, execute ``npm run dev``
 
   
