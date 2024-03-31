@@ -18,4 +18,8 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 2. Instale as dependências do projeto com ``npm install`` or ``yarn``
 3. Para vizualizar a aplicação localmente, execute ``npm run dev``
 
+## 🍿 Demo
+https://github.com/codesofC/shareit/assets/76754023/07673db4-f8c9-4801-8a95-4b3cd5f3fbda
+
+
   
