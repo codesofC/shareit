@@ -11,7 +11,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 - Tailwind CSS
 - NextAuth
 - Firebase
-- Shadcn UI
+- Shadcn UI 
 
 ## 🚦 Para executar o projeto
 1. Clone o repositório em seu local.
