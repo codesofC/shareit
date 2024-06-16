@@ -31,6 +31,7 @@ const Navbar = () => {
         <span className="font-extrabold text-white">
           <Waypoints className="w-8  h-8 md:w-12 md:h-12" />
         </span>
+        <span className="text-white font-mono font-bold text-2xl hidden md:flex"> Share IT </span>
       </div>
 
       <div className="buttons-container">

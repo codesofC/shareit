@@ -60,7 +60,7 @@ const ProjectDetails = ({ project, setIsOpen }: ProjectItem) => {
 
             <div className="flex-start flex-col gap-2 border-b pb-8 w-full">
               <h3 className="text-lg font-semibold"> Description </h3>
-              <p className="text-[13px] text-gray-400 flex-wrap">
+              <p className="text-gray-400 flex-wrap">
                 {project.description}
               </p>
             </div>
@@ -77,7 +77,7 @@ const ProjectDetails = ({ project, setIsOpen }: ProjectItem) => {
               )}
               <div className="flex-start flex-col gap-1">
                 <span className="font-bold"> {project.username} </span>
-                <span className="text-sm text-gray-400 font-extralight">
+                <span className="text-gray-400 font-extralight">
                   {" "}
                   {project.email}{" "}
                 </span>
@@ -93,7 +93,7 @@ const ProjectDetails = ({ project, setIsOpen }: ProjectItem) => {
                     key={index}
                     className="flex-center flex-wrap px-4 py-1 border border-gray-300 rounded-sm"
                   >
-                    <span className="font-semibold text-xs"> {techname} </span>
+                    <span className="font-semibold text-gray-400 text-sm"> {techname} </span>
                   </div>
                 ))}
               </div>
@@ -106,7 +106,7 @@ const ProjectDetails = ({ project, setIsOpen }: ProjectItem) => {
                     <span className="text-sky-600 font-bold text-lg">
                       <Link2 />
                     </span>
-                    <span className="text-sm">{project.urlDemo}</span>
+                    <span className="">{project.urlDemo}</span>
                   </Link>
                 </div>
               )}
@@ -116,7 +116,7 @@ const ProjectDetails = ({ project, setIsOpen }: ProjectItem) => {
                     <span className="text-orange-600 font-bold text-lg">
                       <Figma />
                     </span>
-                    <span className="text-sm">{project.urlDesign}</span>
+                    <span className="">{project.urlDesign}</span>
                   </Link>
                 </div>
               )}
@@ -126,7 +126,7 @@ const ProjectDetails = ({ project, setIsOpen }: ProjectItem) => {
                     <span className="font-bold text-lg">
                       <Github />
                     </span>
-                    <span className="text-sm">{project.urlGithubCode}</span>
+                    <span className="">{project.urlGithubCode}</span>
                   </Link>
                 </div>
               )}
@@ -136,7 +136,7 @@ const ProjectDetails = ({ project, setIsOpen }: ProjectItem) => {
                     <span className="text-red-600 font-bold text-lg">
                       <Youtube />
                     </span>
-                    <span className="text-sm">{project.urlYoutubeTuto}</span>
+                    <span className="">{project.urlYoutubeTuto}</span>
                   </Link>
                 </div>
               )}
@@ -146,7 +146,7 @@ const ProjectDetails = ({ project, setIsOpen }: ProjectItem) => {
                     <span className="text-green-600 font-bold text-lg">
                       <BookText />
                     </span>
-                    <span className="text-sm">{project.urlPortfolio}</span>
+                    <span className="">{project.urlPortfolio}</span>
                   </Link>
                 </div>
               )}

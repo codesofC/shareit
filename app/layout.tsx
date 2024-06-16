@@ -3,6 +3,9 @@ import AuthProvider from "@/components/AuthProvider";
 import type { Metadata } from "next";
 import "./globals.css";
 import { LoadingContext } from "@/components/Loading";
+import { GeistSans } from 'geist/font/sans';
+import { GeistMono } from 'geist/font/mono';
+
 
 export const metadata: Metadata = {
   title: "Share projects",
@@ -16,7 +19,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="bg-black overflow-x-hidden">
+      <body className={`bg-black overflow-x-hidden ${GeistSans.variable} ${GeistMono.variable}`}>
         <LoadingContext>
           <AuthProvider>
             <Navbar />
