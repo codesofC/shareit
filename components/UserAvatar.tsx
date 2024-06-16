@@ -48,13 +48,13 @@ const UserAvatar = ({ displaySubmenu, setDisplaySubmenu }: UserAvatarProps) => {
         <PopoverContent className="px-0 w-48">
           <ul className="mt-1 flex flex-col">
             <li
-              className="flex-center px-2 py-3 cursor-pointer hover:bg-green-600 hover:text-white"
+              className="flex-center px-2 py-3 cursor-pointer hover:bg-primary hover:text-white"
               onClick={goToMyProjects}
             >
               My projects
             </li>
             <li
-              className="flex-center px-2 py-3 cursor-pointer hover:bg-green-600 hover:text-white"
+              className="flex-center px-2 py-3 cursor-pointer hover:bg-primary hover:text-white"
               onClick={goSignOut}
             >
               Logout

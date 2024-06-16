@@ -15,7 +15,8 @@ import { Textarea } from "./ui/textarea";
 import { addProject, storage } from "./Firebase";
 import { useSession } from "next-auth/react";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
-
+import { Upload } from "lucide-react";
+import Image from "next/image";
 
 const formSchema = z.object({
   title: z.string(),
@@ -51,7 +52,6 @@ const FormContainer = () => {
   let submit = false;
 
   const router = useRouter();
-
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -96,86 +96,122 @@ const FormContainer = () => {
       })
       .then((resp) => {
         getDownloadURL(storageRef).then((url) => {
-          
-          const id = Date.now().toString()
+          const id = Date.now().toString();
           inputs.urlImageProject = url;
           submit = true;
 
-          addProject({
-            ...inputs,
-            urlImageProfil: session?.user?.image,
-            email: session?.user?.email,
-            username: session?.user?.name,
+          addProject(
+            {
+              ...inputs,
+              urlImageProfil: session?.user?.image,
+              email: session?.user?.email,
+              username: session?.user?.name,
+              id,
+            },
             id
-          }, id);
-            
+          );
+
           router.push("/myprojects");
         });
       });
-
   };
 
   useEffect(() => {
     if (submit) {
-      
     }
     console.log(submit);
   }, [submit]);
 
   return (
     <Form {...form}>
-      <form onSubmit={onHandleSubmit} className="form-container border">
+      <form onSubmit={onHandleSubmit} className="form-container">
         <div className="form-content">
           <div className="flex-center flex-col gap-4">
-            <h1 className="text-3xl font-extrabold text-green-600">
-              ADD PROJECT
-            </h1>
+            <h1 className="text-3xl font-extrabold text-white">ADD PROJECT</h1>
             <p className="text-sm">
               {" "}
               Create a new project and Explore with Community{" "}
             </p>
           </div>
-          <FormField
-            control={form.control}
-            name="title"
-            render={({ field }) => (
-              <FormItem className="form-content-inputs">
-                <FormControl>
-                  <Input
-                    placeholder="Title"
-                    aria-label="title"
-                    className="text-[15px]"
-                    {...field}
-                    required
-                    onChange={handleChangeInputs}
-                  />
-                </FormControl>
-              </FormItem>
-            )}
-          />
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full">
+            <div className="relative w-full flex flex-col items-center justify-center border rounded-md p-4 h-[300px] overflow-hidden">
+              <Upload />
+              <span> Upload image </span>
+              {fileImage && (
+                <Image 
+                  src={URL.createObjectURL(fileImage)}
+                  width={800}
+                  height={800}
+                  alt="image"
+                  className="absolute w-full h-full top-0 left-0 z-10 object-cover"
+                />
+              )}
+              <FormField
+                control={form.control}
+                name="image"
+                render={({ field }) => (
+                  <FormItem className="form-content-inputs">
+                    <FormControl>
+                      <Input
+                        type="file"
+                        accept="image/gif, image/jpeg, image/png"
+                        aria-label="imageChoice"
+                        {...field}
+                        className="text-[15px] absolute top-0 left-0 w-full h-full cursor-pointer z-20 opacity-0"
+                        onChange={(e) => setFileImage(e.target.files[0])}
+                        required
+                      />
+                    </FormControl>
+                  </FormItem>
+                )}
+              />
+            </div>
 
-          <FormField
-            control={form.control}
-            name="description"
-            render={({ field }) => (
-              <FormItem className="form-content-inputs">
-                <FormControl>
-                  <Textarea
-                    id="description"
-                    placeholder="Write Description here"
-                    aria-label="description"
-                    {...field}
-                    className="outline-none text-[15px]"
-                    required
-                    onChange={handleChangeInputs}
-                  />
-                </FormControl>
-              </FormItem>
-            )}
-          />
+            <div className="flex flex-col gap-6">
+              <FormField
+                control={form.control}
+                name="title"
+                render={({ field }) => (
+                  <FormItem className="form-content-inputs">
+                    <FormControl>
+                      <Input
+                        placeholder="Title"
+                        aria-label="title"
+                        className="text-[15px]"
+                        {...field}
+                        required
+                        onChange={handleChangeInputs}
+                      />
+                    </FormControl>
+                  </FormItem>
+                )}
+              />
+
+              <FormField
+                control={form.control}
+                name="description"
+                render={({ field }) => (
+                  <FormItem className="form-content-inputs">
+                    <FormControl>
+                      <Textarea
+                        id="description"
+                        placeholder="Write Description here"
+                        aria-label="description"
+                        {...field}
+                        className="outline-none text-[15px] min-h-[230px]"
+                        required
+                        onChange={handleChangeInputs}
+                      />
+                    </FormControl>
+                  </FormItem>
+                )}
+              />
+            </div>
+          </div>
+
           <div className=" w-full flex flex-col gap-3">
             <h4 className="text-xl font-bold"> Select Technology </h4>
-            <div className="grid grid-cols-2 items-center justify-start gap-2">
+            <div className="grid grid-cols-3 items-center justify-start gap-2">
               {techs.map((stack) => (
                 <FormField
                   control={form.control}
@@ -190,7 +226,7 @@ const FormContainer = () => {
                             type="checkbox"
                             onClick={(e) => handleCheckBoxes(stack.name, e)}
                           />
-                          <label htmlFor={stack.name}>{stack.name}</label>
+                          <label htmlFor={stack.name} className="line-clamp-1">{stack.name}</label>
                         </div>
                       </FormControl>
                     </FormItem>
@@ -290,30 +326,11 @@ const FormContainer = () => {
               </FormItem>
             )}
           />
-          <FormField
-            control={form.control}
-            name="urlDemo"
-            render={({ field }) => (
-              <FormItem className="form-content-inputs">
-                <FormControl>
-                  <Input
-                    type="file"
-                    accept="image/gif, image/jpeg, image/png"
-                    aria-label="imageChoice"
-                    {...field}
-                    className="text-[15px]"
-                    onChange={(e) => setFileImage(e.target.files[0])}
-                    required
-                  />
-                </FormControl>
-              </FormItem>
-            )}
-          />
         </div>
-        <CustomButton 
-          type="submit" 
-          title="Submit" 
-          customStyles="bg-green-600 text-white" 
+        <CustomButton
+          type="submit"
+          title="Submit"
+          customStyles="bg-green-600 text-white"
         />
       </form>
     </Form>

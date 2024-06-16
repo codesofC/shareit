@@ -1,20 +1,20 @@
 "use client"
 
 import { CustomButtonProps } from '@/types/index'
-import React from 'react'
-import {signIn} from "next-auth/react"
+import { Button } from './ui/button'
+import { cn } from '@/lib/utils'
 
 
 const CustomButton = ({ title, type, customStyles, handleEvent }: CustomButtonProps) => {
   return (
-    <button
+    <Button
         type={type || "button"}
         onClick={handleEvent}
-        className={`custom-button ${customStyles}`}
+        className={cn("bg-transparent py-2", customStyles)}
         aria-label={title}
     >
         { title }
-    </button>
+    </Button>
   )
 }
 

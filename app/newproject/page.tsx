@@ -18,7 +18,7 @@ const NewProject = () => {
   }, [])
 
   return session && (
-    <div className="px-6 sm:px-24 md:px-48 xl:px-96 2xl:px-[30%]">
+    <div className="px-6 sm:px-12 xl:px-40 2xl:px-96">
       <FormContainer />
     </div>
   )
