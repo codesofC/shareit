@@ -83,7 +83,7 @@
   @apply relative mx-5 md:mx-10 lg:mx-16 xl:mx-24;
 }
 .projects-user-container {
-  @apply grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 lg:gap-6;
+  @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 lg:gap-6;
 }
 .projects-user-content {
   @apply relative flex flex-col gap-2 px-2 py-2 items-start rounded-xl transition-all duration-300 ease-in-out;
@@ -96,7 +96,7 @@
   @apply fixed bottom-0 left-0 flex-center h-[100vh] w-full bg-black bg-opacity-80 z-10;
 }
 .card-container {
-  @apply flex flex-col gao-2 sm:gap-4 max-w-[95%] sm:max-w-[75%] lg:max-w-[65%] xl:max-w-[45%] 2xl:max-w-[40%] max-h-[90vh];
+  @apply flex flex-col gap-2 sm:gap-4 max-w-[95%] sm:max-w-[75%] lg:max-w-[65%] xl:max-w-[45%] 2xl:max-w-[40%] max-h-[90vh];
 }
 .card-content {
   @apply flex-start justify-center flex-col md:flex-row gap-3 md:gap-5;

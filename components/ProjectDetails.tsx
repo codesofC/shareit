@@ -159,7 +159,7 @@ const ProjectDetails = ({ project, setIsOpen }: ProjectItem) => {
               title="Delete"
               type="button"
               handleEvent={() => deleteProjectFunction()}
-              customStyles="bg-red-600 text-white"
+              customStyles="bg-red-600 text-white hover:bg-red-500"
             />
           ) : null}
           <X
