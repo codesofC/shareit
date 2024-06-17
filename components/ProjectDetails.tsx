@@ -58,7 +58,7 @@ const ProjectDetails = ({ project, setIsOpen }: ProjectItem) => {
               />
             </div>
 
-            <div className="flex-start flex-col gap-2 border-b pb-8 w-full">
+            <div className="flex-start flex-col gap-2 border-b pb:4 md:pb-8 w-full">
               <h3 className="text-lg font-semibold"> Description </h3>
               <p className="text-gray-400 flex-wrap">
                 {project.description}

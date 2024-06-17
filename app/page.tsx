@@ -10,7 +10,6 @@ import {
   orderBy,
   query,
   QueryDocumentSnapshot,
-  where,
 } from "firebase/firestore";
 import { db } from "@/components/Firebase";
 import ProjectItem from "@/components/ProjectItem";
