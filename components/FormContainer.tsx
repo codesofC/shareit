@@ -226,7 +226,7 @@ const FormContainer = () => {
                             type="checkbox"
                             onClick={(e) => handleCheckBoxes(stack.name, e)}
                           />
-                          <label htmlFor={stack.name} className="line-clamp-1">{stack.name}</label>
+                          <label htmlFor={stack.name} className="flex-wrap">{stack.name}</label>
                         </div>
                       </FormControl>
                     </FormItem>
