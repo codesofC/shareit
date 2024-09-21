@@ -19,7 +19,10 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 3. Para vizualizar a aplicação localmente, execute ``npm run dev``
 
 ## 🍿 Demo
-https://github.com/codesofC/shareit/assets/76754023/07673db4-f8c9-4801-8a95-4b3cd5f3fbda
+![Sem título](https://github.com/user-attachments/assets/53122dea-0bcf-4270-bb9f-d19d894de7bd)
 
+![Sem título2](https://github.com/user-attachments/assets/95bbc4cc-b1bb-4df9-b3a6-b81cb98b19d4)
+
+![Sem título3](https://github.com/user-attachments/assets/08a01be9-10c5-4f8d-b29b-4617a06cf7cb)
 
   
